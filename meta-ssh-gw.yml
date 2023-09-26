@@ -1,0 +1,22 @@
+#cloud-config
+users:
+ - name: root
+   groups: sudo
+   shell: /bin/bash
+   sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   ssh-authorized-keys:
+     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBPEtofP0WfEKfFbTUBw8xwgEbUKxM1lvlApl2wvBtP8 root@diplom
+
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+
+#нужна для ubuntu 20.04 apt
+
+apt:
+  preserve_sourses_list: true
+
+packages:
+  - wget
+  - ansible
